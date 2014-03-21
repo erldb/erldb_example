@@ -1,0 +1,15 @@
+{application, erldb_example,
+ [
+  {description, "Erldb Example"},
+  {vsn, "0.0.1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { erldb_example_app, []}},
+  {env, [{model_path, "models/"},
+         {db_pools, [{mnesia, [{worker, erldb_mnesia},
+			       {poolboy_config, [{size, 10}, {max_overflow, 20}]},
+			       {default_table_options, []}]}]}]}
+]}.
